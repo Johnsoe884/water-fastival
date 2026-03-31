@@ -92,9 +92,24 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
+            margin-bottom: 20px;
         }
 
         button:hover { transform: scale(1.05); }
+
+        /* --- Footer Styling --- */
+        .footer {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .footer span {
+            color: var(--ruby-red);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +126,10 @@
         <h2>欢迎即将到来的 2026 年缅甸新年泼水节</h2>
 
         <button onclick="celebrate()">မင်္ဂလာသင်္ကြန်ပါ။</button>
+
+        <div class="footer">
+            Created by - <span>@smith_is_smith</span>
+        </div>
     </div>
 
     <script>
@@ -121,14 +140,12 @@
                 const petal = document.createElement('div');
                 petal.className = 'petal';
                 
-                // Randomize petal properties
                 const size = Math.random() * 12 + 8 + 'px';
                 petal.style.width = size;
                 petal.style.height = size;
                 petal.style.left = Math.random() * 100 + 'vw';
                 petal.style.opacity = Math.random() * 0.7 + 0.3;
                 
-                // Randomize animation timing
                 petal.style.animationDuration = Math.random() * 5 + 5 + 's';
                 petal.style.animationDelay = Math.random() * 10 + 's';
                 
@@ -137,7 +154,9 @@
         }
 
         function celebrate() {
-            alert("မင်္ဂလာနှစ်သစ်မှာ စိတ်၏ချမ်းသာခြင်း၊ ကိုယ်၏ကျန်းမာခြင်းနှင့် ပြည့်စုံပါစေ!");
+            // Combined Myanmar and Chinese text in the alert
+            const message = "မင်္ဂလာနှစ်သစ်မှာ စိတ်၏ချမ်းသာခြင်း၊ ကိုယ်၏ကျန်းမာခြင်းနှင့် ပြည့်စုံပါစေ!\n\n祝您新年快乐，身体健康，万事如意！";
+            alert(message);
         }
 
         createPetals();
