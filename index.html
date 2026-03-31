@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myanmar New Year 2026 - Falling Padauk</title>
+    <style>
+        :root {
+            --padauk-gold: #FFD700;
+            --deep-saffron: #FF8C00;
+            --ruby-red: #9B111E;
+            --warm-silk: #FFFBF0;
+        }
+
+        body {
+            background-color: var(--warm-silk);
+            font-family: 'Pyidaungsu', 'Segoe UI', Tahoma, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Keeps petals within view */
+        }
+
+        /* --- Main Card Layout --- */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(155, 17, 30, 0.15);
+            border: 4px solid var(--padauk-gold);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+            animation: cardFadeIn 1.2s ease-out;
+        }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- YouTube Video Styling --- */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* --- Greetings --- */
+        h1 { font-size: 1.4rem; color: var(--ruby-red); line-height: 1.8; margin-bottom: 10px; }
+        h2 { font-size: 1.1rem; color: #555; font-weight: normal; margin-bottom: 30px; }
+
+        /* --- Falling Padauk Petals (ပိတောက်ပန်း ပွင့်ဖတ်များ) --- */
+        .petal {
+            position: absolute;
+            background-color: var(--padauk-gold);
+            border-radius: 50% 0 50% 0; /* Petal shape */
+            z-index: 1;
+            pointer-events: none;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg) translateX(0); }
+            25% { transform: translateY(25vh) rotate(90deg) translateX(15px); }
+            50% { transform: translateY(50vh) rotate(180deg) translateX(-15px); }
+            75% { transform: translateY(75vh) rotate(270deg) translateX(15px); }
+            100% { transform: translateY(110vh) rotate(360deg) translateX(0); }
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--deep-saffron), var(--ruby-red));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <div id="petal-container"></div>
+
+    <div class="card">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/lL4r2j8BRfU?autoplay=1&mute=1" 
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <h1>မကြာခင်ရောက်ရှိတော့မယ့် ၂၀၂၆ မြန်မာ နှစ်သစ်ကူး သင်္ကြန်ကို ကြိုဆိုပါတယ်။</h1>
+        <h2>欢迎即将到来的 2026 年缅甸新年泼水节</h2>
+
+        <button onclick="celebrate()">မင်္ဂလာသင်္ကြန်ပါ။</button>
+    </div>
+
+    <script>
+        // Create 40 Falling Padauk Petals
+        function createPetals() {
+            const container = document.getElementById('petal-container');
+            for (let i = 0; i < 40; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                
+                // Randomize petal properties
+                const size = Math.random() * 12 + 8 + 'px';
+                petal.style.width = size;
+                petal.style.height = size;
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                // Randomize animation timing
+                petal.style.animationDuration = Math.random() * 5 + 5 + 's';
+                petal.style.animationDelay = Math.random() * 10 + 's';
+                
+                container.appendChild(petal);
+            }
+        }
+
+        function celebrate() {
+            alert("မင်္ဂလာနှစ်သစ်မှာ စိတ်၏ချမ်းသာခြင်း၊ ကိုယ်၏ကျန်းမာခြင်းနှင့် ပြည့်စုံပါစေ!");
+        }
+
+        createPetals();
+    </script>
+</body>
+</html>
