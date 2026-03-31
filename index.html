@@ -43,16 +43,15 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Vertical Video Styling (9:16 Ratio) --- */
+        /* --- YouTube Video Styling --- */
         .video-wrapper {
             position: relative;
-            padding-bottom: 177.77%; /* Height for Vertical Video */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 20px;
             margin-bottom: 25px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            border: 2px solid var(--padauk-gold);
         }
 
         .video-wrapper iframe {
@@ -61,14 +60,14 @@
         }
 
         /* --- Greetings --- */
-        h1 { font-size: 1.3rem; color: var(--ruby-red); line-height: 1.6; margin-bottom: 10px; }
+        h1 { font-size: 1.4rem; color: var(--ruby-red); line-height: 1.8; margin-bottom: 10px; }
         h2 { font-size: 1.1rem; color: #555; font-weight: normal; margin-bottom: 30px; }
 
-        /* --- Falling Padauk Petals --- */
+        /* --- Falling Padauk Petals (ပိတောက်ပန်း ပွင့်ဖတ်များ) --- */
         .petal {
             position: absolute;
             background-color: var(--padauk-gold);
-            border-radius: 50% 0 50% 0;
+            border-radius: 50% 0 50% 0; /* Petal shape */
             z-index: 1;
             pointer-events: none;
             box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
@@ -93,25 +92,9 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
-            margin-bottom: 20px;
         }
 
         button:hover { transform: scale(1.05); }
-
-        /* --- Footer Styling --- */
-        .footer {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: #777;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            font-style: italic;
-        }
-
-        .footer b {
-            color: var(--ruby-red);
-            font-style: normal;
-        }
     </style>
 </head>
 <body>
@@ -120,7 +103,7 @@
 
     <div class="card">
         <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/lL4r2j8BRfU?autoplay=1&mute=1&loop=1&playlist=lL4r2j8BRfU" 
+            <iframe src="https://www.youtube.com/embed/lL4r2j8BRfU?autoplay=1&mute=1" 
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
 
@@ -128,25 +111,27 @@
         <h2>欢迎即将到来的 2026 年缅甸新年泼水节</h2>
 
         <button onclick="celebrate()">မင်္ဂလာသင်္ကြန်ပါ။</button>
-
-        <div class="footer">
-            Created by - <b>@smith_is_smith</b>
-        </div>
     </div>
 
     <script>
+        // Create 40 Falling Padauk Petals
         function createPetals() {
             const container = document.getElementById('petal-container');
             for (let i = 0; i < 40; i++) {
                 const petal = document.createElement('div');
                 petal.className = 'petal';
+                
+                // Randomize petal properties
                 const size = Math.random() * 12 + 8 + 'px';
                 petal.style.width = size;
                 petal.style.height = size;
                 petal.style.left = Math.random() * 100 + 'vw';
                 petal.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                // Randomize animation timing
                 petal.style.animationDuration = Math.random() * 5 + 5 + 's';
                 petal.style.animationDelay = Math.random() * 10 + 's';
+                
                 container.appendChild(petal);
             }
         }
